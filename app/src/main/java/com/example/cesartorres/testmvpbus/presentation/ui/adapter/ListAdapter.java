@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.cesartorres.testmvpbus.R;
-import com.example.cesartorres.testmvpbus.presentation.mvp.model.User;
+import com.example.cesartorres.testmvpbus.presentation.mvp.model.UserViewModel;
 import com.example.cesartorres.testmvpbus.presentation.ui.viewholder.ListViewHolder;
 
 import java.util.ArrayList;
@@ -19,12 +19,12 @@ import java.util.List;
  */
 
 public class ListAdapter extends RecyclerView.Adapter<ListViewHolder> {
-    private List<User> userList;
+    private List<UserViewModel> userViewModelList;
     private ListAdapterInterface listAdapterInterface;
 
     public ListAdapter(ListAdapterInterface listAdapterInterface) {
         this.listAdapterInterface = listAdapterInterface;
-        this.userList = new ArrayList<>();
+        this.userViewModelList = new ArrayList<>();
     }
 
     public interface ListAdapterInterface{
@@ -42,20 +42,20 @@ public class ListAdapter extends RecyclerView.Adapter<ListViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ListViewHolder holder, int position) {
-        holder.bind(position,getUserList());
+        holder.bind(position, getUserViewModelList());
     }
 
     @Override
     public int getItemCount() {
-        return getUserList().size();
+        return getUserViewModelList().size();
     }
 
-    public List<User> getUserList() {
-        return userList;
+    public List<UserViewModel> getUserViewModelList() {
+        return userViewModelList;
     }
 
-    public void setUserList(List<User> userList) {
-        this.userList = userList;
+    public void setUserViewModelList(List<UserViewModel> userViewModelList) {
+        this.userViewModelList = userViewModelList;
         notifyDataSetChanged();
     }
 }

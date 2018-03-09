@@ -5,7 +5,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.cesartorres.testmvpbus.R;
-import com.example.cesartorres.testmvpbus.presentation.mvp.model.User;
+import com.example.cesartorres.testmvpbus.presentation.mvp.model.UserViewModel;
 import com.example.cesartorres.testmvpbus.presentation.mvp.presenter.ListItemPresenter;
 import com.example.cesartorres.testmvpbus.presentation.mvp.view.contract.ListItemView;
 import com.example.cesartorres.testmvpbus.presentation.ui.adapter.ListAdapter;
@@ -39,8 +39,8 @@ public class ListViewHolder extends RecyclerView.ViewHolder implements ListItemV
         });
     }
 
-    public void bind(int position, List<User> userList) {
-        presenter.handleBinding(position,userList);
+    public void bind(int position, List<UserViewModel> userViewModelList) {
+        presenter.handleBinding(position, userViewModelList);
     }
 
     @Override

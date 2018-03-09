@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">TestMvpBus</string>
+    <string name="label.no.option.selected">Please select an option</string>
 </resources>

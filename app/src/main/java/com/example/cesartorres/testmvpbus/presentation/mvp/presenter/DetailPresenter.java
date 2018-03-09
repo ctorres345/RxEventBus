@@ -1,6 +1,6 @@
 package com.example.cesartorres.testmvpbus.presentation.mvp.presenter;
 
-import com.example.cesartorres.testmvpbus.presentation.mvp.model.User;
+import com.example.cesartorres.testmvpbus.presentation.mvp.model.UserViewModel;
 import com.example.cesartorres.testmvpbus.presentation.mvp.utils.BusEventType;
 import com.example.cesartorres.testmvpbus.presentation.mvp.utils.Constants;
 import com.example.cesartorres.testmvpbus.presentation.mvp.utils.GenericEvent;
@@ -23,27 +23,27 @@ public class DetailPresenter extends BaseBusPresenter{
         switch (eventName){
             case BusEventType.USER_SELECTED:
                 if(isUserSelectionEvent(event)){
-                    handleSelectedUser((User)event.mainObject);
+                    handleSelectedUser((UserViewModel)event.mainObject);
                 }
                 break;
             default:
         }
     }
 
-    private void handleSelectedUser(User user) {
-        if(user != null){
+    private void handleSelectedUser(UserViewModel userViewModel) {
+        if(userViewModel != null){
             view.setResultScreen();
-            if (user.getFullName() != null){
-                view.setFullname(user.getFullName());
+            if (userViewModel.getFullName() != null){
+                view.setFullname(userViewModel.getFullName());
             }
-            if (user.getEmail() != null){
-                view.setEmail(user.getEmail());
+            if (userViewModel.getEmail() != null){
+                view.setEmail(userViewModel.getEmail());
             }
-            if (user.getPhoneNumber() != null){
-                view.setPhonenumber(user.getPhoneNumber());
+            if (userViewModel.getPhoneNumber() != null){
+                view.setPhonenumber(userViewModel.getPhoneNumber());
             }
-            if (user.getProfession() != null){
-                view.setProfession(user.getProfession());
+            if (userViewModel.getProfession() != null){
+                view.setProfession(userViewModel.getProfession());
             }
         }
     }
@@ -53,7 +53,7 @@ public class DetailPresenter extends BaseBusPresenter{
             return false;
         }
 
-        return event.mainObject instanceof User;
+        return event.mainObject instanceof UserViewModel;
     }
 
     @Override

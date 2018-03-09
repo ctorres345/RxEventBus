@@ -28,7 +28,7 @@
             style="@style/Base.TextAppearance.AppCompat.Title"
             android:gravity="center"
             android:padding="16dp"
-            android:text="Pepe1234"/>
+            android:text="Nickname"/>
 
     </LinearLayout>
 

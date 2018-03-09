@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.cesartorres.testmvpbus.R;
-import com.example.cesartorres.testmvpbus.presentation.mvp.model.User;
+import com.example.cesartorres.testmvpbus.presentation.mvp.model.UserViewModel;
 import com.example.cesartorres.testmvpbus.presentation.mvp.presenter.ListPresenter;
 import com.example.cesartorres.testmvpbus.presentation.mvp.view.contract.ListView;
 import com.example.cesartorres.testmvpbus.presentation.ui.adapter.ListAdapter;
@@ -77,9 +77,9 @@ public class ListFragment extends Fragment implements ListAdapter.ListAdapterInt
     }
 
     @Override
-    public void fillUserList(List<User> users) {
+    public void fillUserList(List<UserViewModel> userViewModels) {
         if(adapter != null){
-            adapter.setUserList(users);
+            adapter.setUserViewModelList(userViewModels);
         }
     }
 

@@ -4,7 +4,7 @@ package com.example.cesartorres.testmvpbus.presentation.mvp.model;
  * Created by cesar.torres on 3/9/2018.
  */
 
-public class User {
+public class UserViewModel {
     private long id;
     private String fullName;
     private String email;
@@ -12,10 +12,10 @@ public class User {
     private String profession;
     private String nickname;
 
-    public User() {
+    public UserViewModel() {
     }
 
-    public User(long id, String fullName, String email, String phoneNumber, String profession, String nickname) {
+    public UserViewModel(long id, String fullName, String email, String phoneNumber, String profession, String nickname) {
         this.id = id;
         this.fullName = fullName;
         this.email = email;

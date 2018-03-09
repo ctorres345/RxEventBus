@@ -1,6 +1,6 @@
 package com.example.cesartorres.testmvpbus.presentation.mvp.presenter;
 
-import com.example.cesartorres.testmvpbus.presentation.mvp.model.User;
+import com.example.cesartorres.testmvpbus.presentation.mvp.model.UserViewModel;
 import com.example.cesartorres.testmvpbus.presentation.mvp.view.contract.ListItemView;
 
 import java.util.List;
@@ -16,10 +16,10 @@ public class ListItemPresenter {
         this.view = view;
     }
 
-    public void handleBinding(int position, List<User> userList){
-        if (position >= userList.size()) return;
-        if (userList.get(position) != null){
-            view.setNickname(userList.get(position).getNickname() != null ? userList.get(position).getNickname() : "NO TIENE NOMBRE");
+    public void handleBinding(int position, List<UserViewModel> userViewModelList){
+        if (position >= userViewModelList.size()) return;
+        if (userViewModelList.get(position) != null){
+            view.setNickname(userViewModelList.get(position).getNickname() != null ? userViewModelList.get(position).getNickname() : "NO TIENE NOMBRE");
         }
     }
 }

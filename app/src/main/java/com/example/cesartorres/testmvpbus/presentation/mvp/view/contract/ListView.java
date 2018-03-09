@@ -1,6 +1,6 @@
 package com.example.cesartorres.testmvpbus.presentation.mvp.view.contract;
 
-import com.example.cesartorres.testmvpbus.presentation.mvp.model.User;
+import com.example.cesartorres.testmvpbus.presentation.mvp.model.UserViewModel;
 
 import java.util.List;
 
@@ -11,5 +11,5 @@ import java.util.List;
 public interface ListView extends BaseView {
     void showNoListMessage();
 
-    void fillUserList(List<User> users);
+    void fillUserList(List<UserViewModel> userViewModels);
 }
