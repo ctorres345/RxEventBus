@@ -6,9 +6,9 @@ import android.widget.TextView;
 
 import com.example.cesartorres.testmvpbus.R;
 import com.example.cesartorres.testmvpbus.presentation.mvp.model.UserViewModel;
-import com.example.cesartorres.testmvpbus.presentation.mvp.presenter.ListItemPresenter;
-import com.example.cesartorres.testmvpbus.presentation.mvp.view.contract.ListItemView;
-import com.example.cesartorres.testmvpbus.presentation.ui.adapter.ListAdapter;
+import com.example.cesartorres.testmvpbus.presentation.mvp.presenter.UserListItemPresenter;
+import com.example.cesartorres.testmvpbus.presentation.mvp.view.contract.UserListItemView;
+import com.example.cesartorres.testmvpbus.presentation.ui.adapter.UserListAdapter;
 
 import java.util.List;
 
@@ -19,16 +19,16 @@ import butterknife.ButterKnife;
  * Created by cesar.torres on 3/9/2018.
  */
 
-public class ListViewHolder extends RecyclerView.ViewHolder implements ListItemView{
+public class UserListViewHolder extends RecyclerView.ViewHolder implements UserListItemView {
     @BindView(R.id.tvNickname) TextView tvNickname;
 
-    private ListAdapter.ListAdapterInterface listAdapterInterface;
-    private ListItemPresenter presenter;
+    private UserListAdapter.ListAdapterInterface listAdapterInterface;
+    private UserListItemPresenter presenter;
 
-    public ListViewHolder(View itemView, final ListAdapter.ListAdapterInterface listAdapterInterface) {
+    public UserListViewHolder(View itemView, final UserListAdapter.ListAdapterInterface listAdapterInterface) {
         super(itemView);
         ButterKnife.bind(this,itemView);
-        presenter = new ListItemPresenter(this);
+        presenter = new UserListItemPresenter(this);
         this.listAdapterInterface = listAdapterInterface;
 
         itemView.setOnClickListener(new View.OnClickListener() {

@@ -11,8 +11,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.cesartorres.testmvpbus.R;
-import com.example.cesartorres.testmvpbus.presentation.mvp.presenter.DetailPresenter;
-import com.example.cesartorres.testmvpbus.presentation.mvp.view.contract.DetailView;
+import com.example.cesartorres.testmvpbus.presentation.mvp.presenter.UserDetailPresenter;
+import com.example.cesartorres.testmvpbus.presentation.mvp.view.contract.UserDetailView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -21,25 +21,25 @@ import butterknife.ButterKnife;
  * Created by cesar.torres on 3/9/2018.
  */
 
-public class DetailFragment extends Fragment implements DetailView{
+public class UserDetailFragment extends Fragment implements UserDetailView {
     @BindView(R.id.tvFullname)protected TextView tvFullname;
     @BindView(R.id.tvEmail)protected TextView tvEmail;
     @BindView(R.id.tvPhone)protected TextView tvPhone;
     @BindView(R.id.tvProfession)protected TextView tvProfession;
     @BindView(R.id.tvDummy)protected TextView tvDummy;
 
-    private DetailPresenter presenter;
+    private UserDetailPresenter presenter;
 
-    public static DetailFragment newInstance(){
-        return new DetailFragment();
+    public static UserDetailFragment newInstance(){
+        return new UserDetailFragment();
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        final View rootView = inflater.inflate(R.layout.fragment_detail,container,false);
+        final View rootView = inflater.inflate(R.layout.fragment_user_detail,container,false);
         ButterKnife.bind(this,rootView);
-        presenter = new DetailPresenter(this);
+        presenter = new UserDetailPresenter(this);
         return rootView;
     }
 

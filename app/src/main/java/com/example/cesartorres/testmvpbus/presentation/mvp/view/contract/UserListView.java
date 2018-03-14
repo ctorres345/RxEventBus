@@ -8,7 +8,7 @@ import java.util.List;
  * Created by cesar.torres on 3/9/2018.
  */
 
-public interface ListView extends BaseView {
+public interface UserListView extends BaseView {
     void showNoListMessage();
 
     void fillUserList(List<UserViewModel> userViewModels);

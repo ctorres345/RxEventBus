@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 
 import com.example.cesartorres.testmvpbus.R;
 import com.example.cesartorres.testmvpbus.presentation.mvp.model.UserViewModel;
-import com.example.cesartorres.testmvpbus.presentation.ui.viewholder.ListViewHolder;
+import com.example.cesartorres.testmvpbus.presentation.ui.viewholder.UserListViewHolder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,11 +18,11 @@ import java.util.List;
  * Created by cesar.torres on 3/9/2018.
  */
 
-public class ListAdapter extends RecyclerView.Adapter<ListViewHolder> {
+public class UserListAdapter extends RecyclerView.Adapter<UserListViewHolder> {
     private List<UserViewModel> userViewModelList;
     private ListAdapterInterface listAdapterInterface;
 
-    public ListAdapter(ListAdapterInterface listAdapterInterface) {
+    public UserListAdapter(ListAdapterInterface listAdapterInterface) {
         this.listAdapterInterface = listAdapterInterface;
         this.userViewModelList = new ArrayList<>();
     }
@@ -33,15 +33,15 @@ public class ListAdapter extends RecyclerView.Adapter<ListViewHolder> {
 
     @NonNull
     @Override
-    public ListViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public UserListViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         final View rootView = LayoutInflater
                 .from(parent.getContext())
                 .inflate(R.layout.item_user,parent,false);
-        return new ListViewHolder(rootView,this.listAdapterInterface);
+        return new UserListViewHolder(rootView,this.listAdapterInterface);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ListViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull UserListViewHolder holder, int position) {
         holder.bind(position, getUserViewModelList());
     }
 

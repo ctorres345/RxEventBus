@@ -4,16 +4,16 @@ import com.example.cesartorres.testmvpbus.presentation.mvp.model.UserViewModel;
 import com.example.cesartorres.testmvpbus.presentation.mvp.utils.BusEventType;
 import com.example.cesartorres.testmvpbus.presentation.mvp.utils.Constants;
 import com.example.cesartorres.testmvpbus.presentation.mvp.utils.GenericEvent;
-import com.example.cesartorres.testmvpbus.presentation.mvp.view.contract.DetailView;
+import com.example.cesartorres.testmvpbus.presentation.mvp.view.contract.UserDetailView;
 
 /**
  * Created by cesar.torres on 3/9/2018.
  */
 
-public class DetailPresenter extends BaseBusPresenter{
-    private DetailView view;
+public class UserDetailPresenter extends BaseBusPresenter{
+    private UserDetailView view;
 
-    public DetailPresenter(DetailView view) {
+    public UserDetailPresenter(UserDetailView view) {
         this.view = view;
     }
 

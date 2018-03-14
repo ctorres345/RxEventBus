@@ -8,9 +8,10 @@ import static java.lang.annotation.RetentionPolicy.SOURCE;
 
 public class BusEventType {
     @Retention(SOURCE)
-    @StringDef({USER_SELECTED})
+    @StringDef({USER_SELECTED,PRODUCT_SELECTED})
     public @interface ListUpdate {}
 
     public static final String USER_SELECTED = "userSelected";
+    public static final String PRODUCT_SELECTED = "productSelected";
 }
  

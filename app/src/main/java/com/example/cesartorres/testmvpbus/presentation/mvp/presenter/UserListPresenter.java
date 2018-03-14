@@ -4,7 +4,7 @@ import com.example.cesartorres.testmvpbus.presentation.mvp.model.UserViewModel;
 import com.example.cesartorres.testmvpbus.presentation.mvp.utils.BusEventType;
 import com.example.cesartorres.testmvpbus.presentation.mvp.utils.Constants;
 import com.example.cesartorres.testmvpbus.presentation.mvp.utils.GenericEvent;
-import com.example.cesartorres.testmvpbus.presentation.mvp.view.contract.ListView;
+import com.example.cesartorres.testmvpbus.presentation.mvp.view.contract.UserListView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,11 +20,11 @@ import io.reactivex.schedulers.Schedulers;
  * Created by cesar.torres on 3/9/2018.
  */
 
-public class ListPresenter extends BaseBusPresenter {
-    private ListView view;
+public class UserListPresenter extends BaseBusPresenter {
+    private UserListView view;
     private List<UserViewModel> userViewModelList;
 
-    public ListPresenter(ListView view) {
+    public UserListPresenter(UserListView view) {
         this.view = view;
         this.userViewModelList = new ArrayList<>();
     }

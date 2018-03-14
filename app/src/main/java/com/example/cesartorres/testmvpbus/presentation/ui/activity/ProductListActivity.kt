@@ -9,17 +9,19 @@ import com.example.cesartorres.testmvpbus.R
 /**
  * Created by cesar.torres on 3/9/2018.
  */
-class ContactListActivity : AppCompatActivity() {
+class ProductListActivity : AppCompatActivity() {
+
+    companion object {
+        fun newIntent(context: Context): Intent{
+            val intent = Intent(context, ProductListActivity :: class.java)
+            return intent
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_test)
     }
 
-    companion object {
-        fun newIntent(context: Context): Intent{
-            val intent = Intent(context, ContactListActivity :: class.java)
-            return intent
-        }
-    }
+
 }

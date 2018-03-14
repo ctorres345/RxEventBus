@@ -13,9 +13,9 @@ import android.widget.Toast;
 
 import com.example.cesartorres.testmvpbus.R;
 import com.example.cesartorres.testmvpbus.presentation.mvp.model.UserViewModel;
-import com.example.cesartorres.testmvpbus.presentation.mvp.presenter.ListPresenter;
-import com.example.cesartorres.testmvpbus.presentation.mvp.view.contract.ListView;
-import com.example.cesartorres.testmvpbus.presentation.ui.adapter.ListAdapter;
+import com.example.cesartorres.testmvpbus.presentation.mvp.presenter.UserListPresenter;
+import com.example.cesartorres.testmvpbus.presentation.mvp.view.contract.UserListView;
+import com.example.cesartorres.testmvpbus.presentation.ui.adapter.UserListAdapter;
 
 import java.util.List;
 
@@ -26,15 +26,15 @@ import butterknife.ButterKnife;
  * Created by cesar.torres on 3/9/2018.
  */
 
-public class ListFragment extends Fragment implements ListAdapter.ListAdapterInterface, ListView{
+public class UserListFragment extends Fragment implements UserListAdapter.ListAdapterInterface, UserListView {
 
     @BindView(R.id.rvList)protected RecyclerView rvList;
 
-    private ListAdapter adapter;
-    private ListPresenter presenter;
+    private UserListAdapter adapter;
+    private UserListPresenter presenter;
 
-    public static ListFragment newInstance(){
-        return new ListFragment();
+    public static UserListFragment newInstance(){
+        return new UserListFragment();
     }
 
 
@@ -43,7 +43,7 @@ public class ListFragment extends Fragment implements ListAdapter.ListAdapterInt
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         final View rootView = inflater.inflate(R.layout.fragment_list,container,false);
         ButterKnife.bind(this,rootView);
-        presenter = new ListPresenter(this);
+        presenter = new UserListPresenter(this);
         return rootView;
     }
 
@@ -90,7 +90,7 @@ public class ListFragment extends Fragment implements ListAdapter.ListAdapterInt
 
     @Override
     public void initializeUI() {
-        adapter = new ListAdapter(this);
+        adapter = new UserListAdapter(this);
         rvList.setLayoutManager(new LinearLayoutManager(getContext()));
         rvList.setAdapter(adapter);
     }
