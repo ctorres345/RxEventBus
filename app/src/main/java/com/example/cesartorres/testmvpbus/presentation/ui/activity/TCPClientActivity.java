@@ -21,7 +21,7 @@ import butterknife.OnClick;
 
 public class TCPClientActivity extends AppCompatActivity implements ServerConnection.ServerListener {
     @BindView(R.id.tvLog)protected TextView tvLog;
-    private String SERVER_URL = "http://192.168.7.40:10001";
+    private String SERVER_URL = "ws://echo.websocket.org/";
     private ServerConnection serverConnection;
 
     public static Intent newIntent(Context context){

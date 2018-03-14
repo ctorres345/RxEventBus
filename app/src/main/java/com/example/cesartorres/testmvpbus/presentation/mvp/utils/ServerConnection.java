@@ -5,8 +5,6 @@ import android.os.Message;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
-import java.util.concurrent.TimeUnit;
-
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -38,6 +36,7 @@ public class ServerConnection {
         public void onOpen(WebSocket webSocket, Response response) {
             Message message = statusHandler.obtainMessage(0,ConnectionStatus.CONNECTED);
             statusHandler.sendMessage(message);
+            webSocket.send("Hola");
         }
 
         @Override
@@ -61,15 +60,14 @@ public class ServerConnection {
 
     public void initializeConnection(String url, final ServerListener serverListener){
         this.serverUrl = url;
-        okHttpClient = new OkHttpClient.Builder()
-                .readTimeout(3, TimeUnit.SECONDS)
-                .retryOnConnectionFailure(true)
-                .build();
+        this.serverListener = serverListener;
+        okHttpClient = new OkHttpClient();
         Request request = new Request.Builder()
                 .url(this.serverUrl)
                 .build();
-        webSocket = okHttpClient.newWebSocket(request,new SocketListener());
-        this.serverListener = serverListener;
+        webSocket = okHttpClient.newWebSocket(request, new SocketListener());
+        okHttpClient.dispatcher().executorService().shutdown();
+        //okHttpClient = new OkHttpClient.Builder().readTimeout(3, TimeUnit.SECONDS).retryOnConnectionFailure(true).build();
         messageHandler = new Handler(new Handler.Callback() {
             @Override
             public boolean handleMessage(Message msg) {

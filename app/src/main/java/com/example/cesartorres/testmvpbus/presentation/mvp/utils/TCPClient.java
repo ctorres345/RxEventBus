@@ -12,12 +12,6 @@ import java.net.InetAddress;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
-import io.reactivex.Observable;
-import io.reactivex.Observer;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.Disposable;
-import io.reactivex.schedulers.Schedulers;
-
 /**
  * Created by cesar.torres on 3/13/2018.
  */
@@ -34,7 +28,6 @@ public class TCPClient {
     private BufferedReader bufferedReader;
     private Runnable messageRunnable;
     private Thread messageThread;
-
 
     public TCPClient(OnMessageReceived onMessageReceived) {
         this.onMessageReceived = onMessageReceived;
@@ -55,30 +48,6 @@ public class TCPClient {
                 }
             }
         };
-        Observable.just(messageRunnable)
-                .observeOn(Schedulers.io())
-                .subscribeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<Runnable>() {
-                    @Override
-                    public void onSubscribe(Disposable d) {
-
-                    }
-
-                    @Override
-                    public void onNext(Runnable runnable) {
-
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-
-                    }
-
-                    @Override
-                    public void onComplete() {
-
-                    }
-                });
         messageThread = new Thread(messageRunnable);
         messageThread.start();
     }
