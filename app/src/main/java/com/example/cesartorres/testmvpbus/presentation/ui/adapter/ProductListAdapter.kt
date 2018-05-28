@@ -12,7 +12,7 @@ import com.example.cesartorres.testmvpbus.presentation.ui.viewholder.ProductList
  */
 class ProductListAdapter (private val productListAdapterInterface : ProductListAdapterInterface) : RecyclerView.Adapter<ProductListViewHolder>() {
 
-    private val productViewModelList = ArrayList<ProductViewModel>()
+    var productViewModelList : List<ProductViewModel> = ArrayList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductListViewHolder {
         return ProductListViewHolder(LayoutInflater

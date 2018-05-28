@@ -15,6 +15,10 @@ import io.reactivex.schedulers.Schedulers
  */
 class ProductListPresenter(var view : ProductListView?) : BaseBusPresenter() {
 
+    init {
+        initialize()
+    }
+
     private var productViewModelList = ArrayList<ProductViewModel>()
 
     override fun eventUpdated (event: GenericEvent?) {
@@ -34,11 +38,11 @@ class ProductListPresenter(var view : ProductListView?) : BaseBusPresenter() {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeBy(onNext = {productViewModelList = it},
-                onComplete = {view?.fillProductList(productViewModelList)},
-                onError = {
-                    view?.showNoListMessage()
-                    view?.showErrorMessage(it.message?:"Observable Error")
-                })
+                        onComplete = {view?.fillProductList(productViewModelList)},
+                        onError = {
+                            view?.showNoListMessage()
+                            view?.showErrorMessage(it.message?:"Observable Error")
+                        })
     }
 
     fun itemClicked (position : Int?){

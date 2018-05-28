@@ -16,7 +16,7 @@ class ProductListViewHolder(itemView: View , productListAdapterInterface: Produc
     var presenter = ProductListItemPresenter(this)
 
     init {
-        adapterPosition.let { itemView.setOnClickListener( { v -> productListAdapterInterface.onItemClicked(it) } ) }
+        itemView.setOnClickListener( { productListAdapterInterface.onItemClicked(adapterPosition) } )
     }
 
     fun bind(position : Int, productViewModelList : List<ProductViewModel>){
@@ -26,6 +26,5 @@ class ProductListViewHolder(itemView: View , productListAdapterInterface: Produc
     override fun setProductName(name: String?) {
         name.let { itemView.tvProductName.text = it }
     }
-
 
 }

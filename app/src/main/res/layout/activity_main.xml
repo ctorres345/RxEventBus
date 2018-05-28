@@ -39,15 +39,6 @@
             android:layout_margin="8dp"
             android:text="Product List"/>
 
-        <Button
-            android:id="@+id/btnTCPClient"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="24dp"
-            android:layout_gravity="center"
-            android:layout_margin="8dp"
-            android:text="TCP Client"/>
-
     </LinearLayout>
 
 </RelativeLayout>

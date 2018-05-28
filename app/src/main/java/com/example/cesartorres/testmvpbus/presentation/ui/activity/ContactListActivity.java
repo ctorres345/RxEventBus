@@ -36,5 +36,8 @@ public class ContactListActivity extends AppCompatActivity{
         getSupportFragmentManager().beginTransaction().add(R.id.fl_right_layout, userDetailFragment).addToBackStack(null).commit();
     }
 
-
+    @Override
+    public void onBackPressed() {
+        finish();
+    }
 }

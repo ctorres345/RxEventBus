@@ -27,6 +27,7 @@ public class UserListPresenter extends BaseBusPresenter {
     public UserListPresenter(UserListView view) {
         this.view = view;
         this.userViewModelList = new ArrayList<>();
+        initialize();
     }
 
     @Override

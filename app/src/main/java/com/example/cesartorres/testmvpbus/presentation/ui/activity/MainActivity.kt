@@ -23,12 +23,6 @@ class MainActivity : AppCompatActivity() {
             val intent = ProductListActivity.newIntent(this)
             startActivity(intent)
         })
-
-        btnTCPClient.setOnClickListener({
-            val intent = TCPClientActivity.newIntent(this)
-            startActivity(intent)
-        })
     }
-
 
 }

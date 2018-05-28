@@ -11,6 +11,10 @@ import com.example.cesartorres.testmvpbus.presentation.mvp.view.contract.Product
  */
 class ProductDetailPresenter (var view : ProductDetailView?) : BaseBusPresenter() {
 
+    init {
+        initialize()
+    }
+
     override fun eventUpdated(event: GenericEvent?) {
         val eventName = event?.eventName
         val eventObject = event?.mainObject
@@ -21,10 +25,13 @@ class ProductDetailPresenter (var view : ProductDetailView?) : BaseBusPresenter(
     }
 
     private fun handleSelectedProduct(productViewModel: ProductViewModel) {
-        view?.setResultScreen()
-        productViewModel.productDescription.let { view?.setDescription(it) }
-        productViewModel.productPrice.let { view?.setPrice(it) }
-        productViewModel.productType.let { view?.setType(it) }
+        view?.let {
+            it.setResultScreen()
+            it.setProductName(productViewModel.productName ?: Constants.NAME_NOT_DEFINED)
+            it.setDescription(productViewModel.productDescription ?: Constants.DESCRIPTION_NOT_DEFINED)
+            it.setPrice(productViewModel.productPrice ?: Constants.DEFAULT_AMOUNT)
+            it.setType(productViewModel.productType ?: Constants.TYPE_NOT_DEFINED)
+        }
     }
 
     override fun handleEventBusError() {

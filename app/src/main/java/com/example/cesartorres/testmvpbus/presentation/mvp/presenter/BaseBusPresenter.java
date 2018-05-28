@@ -39,14 +39,14 @@ public abstract class BaseBusPresenter {
         rxBus = EventBus.getInstance();
         rxBusSubscription = rxBus.toObservable().subscribe(new Consumer<Object>() {
             @Override
-            public void accept(Object event) throws Exception {
+            public void accept(Object event) {
                 if (event instanceof GenericEvent) {
                     eventUpdated((GenericEvent) event);
                 }
             }
         }, new Consumer<Throwable>() {
             @Override
-            public void accept(Throwable throwable) throws Exception {
+            public void accept(Throwable throwable) {
                 handleEventBusError();
             }
         });

@@ -67,13 +67,10 @@ public class UserListFragment extends Fragment implements UserListAdapter.ListAd
     }
 
     @Override
-    public void onItemClicked(int position) {
-        presenter.itemClicked(position);
-    }
-
-    @Override
-    public void showNoListMessage() {
-
+    public void initializeUI() {
+        adapter = new UserListAdapter(this);
+        rvList.setLayoutManager(new LinearLayoutManager(getContext()));
+        rvList.setAdapter(adapter);
     }
 
     @Override
@@ -84,14 +81,18 @@ public class UserListFragment extends Fragment implements UserListAdapter.ListAd
     }
 
     @Override
+    public void showNoListMessage() {
+
+    }
+
+    @Override
     public void showErrorMessage(String message) {
         Toast.makeText(getActivity(),message,Toast.LENGTH_SHORT).show();
     }
 
     @Override
-    public void initializeUI() {
-        adapter = new UserListAdapter(this);
-        rvList.setLayoutManager(new LinearLayoutManager(getContext()));
-        rvList.setAdapter(adapter);
+    public void onItemClicked(int position) {
+        presenter.itemClicked(position);
     }
+
 }
